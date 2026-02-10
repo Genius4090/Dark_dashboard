@@ -18,7 +18,7 @@ const Register = () => {
     password: e.target.password.value,
     avatar: e.target.image.value,
    }
-   axios.post("https://api.escuelajs.co/api/v1/users/",data).then(res=> {
+   axios.post("https://api.escuelajs.co/api/v1/users/",data).then(()=> {
     toast.success('Successfully logged in')
     setTimeout(()=> {
       navigate(PATH.home)
