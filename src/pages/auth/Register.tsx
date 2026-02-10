@@ -4,8 +4,9 @@ import Button from "../../components/Button"
 import FormLinkItem from "../../components/FormLinkItem"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import { PATH } from "../../paths/PATH"
+
 import toast, { Toaster } from "react-hot-toast"
+import { PATH } from "../../paths/PATH"
 
 
 const Register = () => {

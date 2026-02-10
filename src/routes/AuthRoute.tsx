@@ -3,6 +3,7 @@ import { Login, NotFound, Register } from "../pages"
 import { PATH } from "../paths/PATH"
 
 
+
 const AuthRoute = () => {
 
   const authList = [

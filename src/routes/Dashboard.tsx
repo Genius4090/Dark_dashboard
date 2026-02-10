@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import { PATH } from "../paths/PATH"
+
 import { Category, Home, NotFound, Products } from "../pages"
+import { PATH } from "../paths/PATH"
 
 
 const Dashboard = () => {

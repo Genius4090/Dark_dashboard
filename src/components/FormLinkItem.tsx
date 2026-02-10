@@ -2,6 +2,7 @@ import type { FC } from "react"
 import { Link } from "react-router-dom"
 import { PATH } from "../paths/PATH"
 
+
 interface FormLinkType {
 title:"Don't have an account?" | "Already have an account?",
 }
