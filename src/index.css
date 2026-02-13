@@ -11,7 +11,8 @@
 
   }
   body{
-    background-color: #009578;
+    background-color: black;
+    overflow: hidden;
   }
 }
 
@@ -19,3 +20,36 @@
   width: 1200px;
   margin: 0 auto;
 }
+
+
+.active{
+  background: white;
+  color: black;
+}
+
+
+
+/* width of scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* adjust thickness */
+  height: 12px; /* horizontal scrollbar height */
+}
+
+/* scrollbar track (background) */
+::-webkit-scrollbar-track {
+  
+  border-radius: 6px;
+}
+
+/* scrollbar thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #363636; /* your thumb color */
+  border-radius: 6px;
+  border: 3px solid #1a1a1a; /* optional: adds padding inside track */
+}
+
+/* hover effect on thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+

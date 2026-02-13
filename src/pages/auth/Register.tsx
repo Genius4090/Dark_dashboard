@@ -2,29 +2,19 @@ import type { SubmitEvent } from "react"
 import { AuthFormItem } from "../../components"
 import Button from "../../components/Button"
 import FormLinkItem from "../../components/FormLinkItem"
-import axios from "axios"
+
 import { useNavigate } from "react-router-dom"
 
-import toast, { Toaster } from "react-hot-toast"
-import { PATH } from "../../paths/PATH"
+import { Toaster } from "react-hot-toast"
+
+import { registerFn } from "../../services"
+
 
 
 const Register = () => {
   const navigate = useNavigate()
   function handleCreateSubmit(e:SubmitEvent<HTMLFormElement>){
-   e.preventDefault()
-   const data = {
-    name: e.target.firstname + e.target.lastname,
-    email: e.target.email.value,
-    password: e.target.password.value,
-    avatar: e.target.image.value,
-   }
-   axios.post("https://api.escuelajs.co/api/v1/users/",data).then(()=> {
-    toast.success('Successfully logged in')
-    setTimeout(()=> {
-      navigate(PATH.home)
-    },2000)
-   }).catch(()=>  toast.error('Something went wrong'))
+    registerFn({e,navigate})
   }
   return (
     <div className="container h-screen flex items-center justify-center">

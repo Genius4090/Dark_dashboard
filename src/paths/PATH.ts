@@ -3,5 +3,6 @@ export const PATH = {
     register: "/register",
     products: "/products",
     category: "/category",
+    profile: "/profile",
     notFound: "*"
 }
