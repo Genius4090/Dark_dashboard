@@ -4,7 +4,7 @@ import { Context } from "../../context/GlobalContext";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import { AuthFormItem } from "../../components";
-import { instance } from "../../hooks";
+
 
 
 const Profile = () => {
@@ -52,8 +52,8 @@ const Profile = () => {
        <form className="flex flex-col  gap-10 items-center justify-center  h-full w-full px-4">
         <h2 className="text-white font-semibold text-xl">Update user info</h2>
        <div className="w-full  flex flex-col px-8 gap-6">
-       <AuthFormItem isRequired={true} name="username" padX="2" padY="3" placeholder="update username" type="text" textCol="white" borderCol="white" extraClass="placeholder:text-gray-300"/>
-       <AuthFormItem isRequired={true} name="email"  padX="2" padY="3" placeholder="update email" type="email" textCol="white" borderCol="white" extraClass="placeholder:text-gray-300"/>
+       <AuthFormItem isRequired={true} name="username"  placeholder="update username" type="text" textCol="white" borderCol="white" extraClass="placeholder:text-gray-300 py-3 px-2"/>
+       <AuthFormItem isRequired={true} name="email"   placeholder="update email" type="email" textCol="white" borderCol="white" extraClass="placeholder:text-gray-300 py-3 px-2"/>
        </div>
      <div className="flex flex-col w-full items-center gap-2 px-7">
      <Button bgColor="white" textColor="black" extraClass="w-full" padY="2">Update</Button>
