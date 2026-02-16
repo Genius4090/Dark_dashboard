@@ -32,7 +32,9 @@ const Header = () => {
           {location.pathname === PATH.home && "Home"}
           {location.pathname === PATH.products && "Products"}
           {location.pathname === PATH.category && "Categories"}
-          {location.pathname === PATH.profile && "Profile"}
+          {location.pathname === PATH.productCreate && "Create a product"}
+          {location.pathname === PATH.productMore && "Product details"}
+          {location.pathname === PATH.productUpdate && "Update a product"}
         </h2>
         <Button onClick={()=> setLogModal(true)} bgColor="white" textColor="black" padX="6" padY="2">Log Out</Button>
         <Modal openModal={logModal} setOpenModal={setLogModal}>

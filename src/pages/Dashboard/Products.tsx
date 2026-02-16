@@ -4,6 +4,8 @@ import type { ProductType } from "../../@types/ProductType"
 import type { CategoryType } from "../../@types/CategoryType"
 import { AuthFormItem, SelectorItem } from "../../components"
 import { EllipsisVertical } from "lucide-react"
+import { useNavigate } from "react-router-dom"
+import { PATH } from "../../paths/PATH"
 
 
 const Products = () => {
@@ -13,6 +15,9 @@ const Products = () => {
    const errImage = "https://cdn.shopify.com/s/files/1/2303/2711/files/2_e822dae0-14df-4cb8-b145-ea4dc0966b34.jpg?v=1617059123"
    const [inputVal,setInputVal] = useState<string>("")
    const search = debounce(inputVal,800)
+
+   const navigate = useNavigate()
+
   useEffect(()=>{
     instance.get("/products",{
       params: {
@@ -47,7 +52,7 @@ const Products = () => {
       <ul className="text-white flex flex-wrap gap-10 justify-center py-6">
       {products?.map(item=>
         <li key={item.id} className="w-[300px] p-2 rounded flex flex-col items-start justify-between gap-4 relative">
-          <button className=" cursor-pointer absolute right-3 top-3 bg-white  rounded-full p-1 font-semibold text-black"><EllipsisVertical /></button>
+          <button onClick={()=> navigate(PATH.productMore)} className=" cursor-pointer absolute right-3 top-3 bg-white  rounded-full p-1 font-semibold text-black"><EllipsisVertical /></button>
           <img src={item.images[0]} onError={(e)=> (e.target as HTMLImageElement).src = errImage}  alt="product__img" className="h-48 w-full object-cover" />
           <h2 className="font-semibold  truncate w-full">{item.title}</h2>
           <div className="flex justify-between w-full items-center py-1">
