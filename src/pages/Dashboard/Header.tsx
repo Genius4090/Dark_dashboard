@@ -5,6 +5,7 @@ import Modal from "../../components/Modal"
 import { Context } from "../../context/GlobalContext"
 import toast from "react-hot-toast"
 import Button from "../../components/Button"
+import Breadcrumps from "../../components/Breadcrumps"
 
 const Header = () => {
   const [logModal,setLogModal] = useState<boolean>(false)
@@ -35,7 +36,9 @@ const Header = () => {
           {location.pathname === PATH.productCreate && "Create a product"}
           {location.pathname === PATH.productMore && "Product details"}
           {location.pathname === PATH.productUpdate && "Update a product"}
+          {location.pathname === PATH.profile && "Profile"}
         </h2>
+        <Breadcrumps/>
         <Button onClick={()=> setLogModal(true)} bgColor="white" textColor="black" padX="6" padY="2">Log Out</Button>
         <Modal openModal={logModal} setOpenModal={setLogModal}>
           <h2 className="text-white font-semibold text-lg text-center ">Do you want to log out?</h2>

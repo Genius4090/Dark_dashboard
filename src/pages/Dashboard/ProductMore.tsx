@@ -1,6 +1,6 @@
 const ProductMore = () => {
   return (
-    <div className="text-white">ProductMore</div>
+    <div className="text-white"></div>
   )
 }
 
