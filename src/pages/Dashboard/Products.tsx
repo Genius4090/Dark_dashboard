@@ -3,6 +3,7 @@ import { debounce, instance } from "../../hooks"
 import type { ProductType } from "../../@types/ProductType"
 import type { CategoryType } from "../../@types/CategoryType"
 import { AuthFormItem, SelectorItem } from "../../components"
+import { EllipsisVertical } from "lucide-react"
 
 
 const Products = () => {
@@ -45,7 +46,8 @@ const Products = () => {
       </div>
       <ul className="text-white flex flex-wrap gap-10 justify-center py-6">
       {products?.map(item=>
-        <li key={item.id} className="w-[300px] p-2 rounded flex flex-col items-start justify-between gap-4">
+        <li key={item.id} className="w-[300px] p-2 rounded flex flex-col items-start justify-between gap-4 relative">
+          <button className=" cursor-pointer absolute right-3 top-3 bg-white  rounded-full p-1 font-semibold text-black"><EllipsisVertical /></button>
           <img src={item.images[0]} onError={(e)=> (e.target as HTMLImageElement).src = errImage}  alt="product__img" className="h-48 w-full object-cover" />
           <h2 className="font-semibold  truncate w-full">{item.title}</h2>
           <div className="flex justify-between w-full items-center py-1">
@@ -53,7 +55,6 @@ const Products = () => {
            <p className="bg-amber-300 text-black px-4 py-1.5 rounded text-sm font-semibold">{item.category.name}</p>
           </div>
           <p className="line-clamp-4 w-full">{item.description}</p>
-    
           <button className="bg-white w-full cursor-pointer py-1.5  rounded font-semibold text-black">Buy</button>
         </li>
       )}

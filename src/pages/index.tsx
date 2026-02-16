@@ -7,4 +7,6 @@ import NotFound from "./NotFound";
 import Header from "./Dashboard/Header";
 import Sidebar from "./Dashboard/Sidebar";
 import Profile from "./Dashboard/Profile";
-export {Login,Register,Home,Products,Category,NotFound,Header,Sidebar,Profile}
+import ProductCrud from "./Dashboard/ProductCrud";
+import ProductMore from "./Dashboard/ProductMore";
+export {Login,Register,Home,Products,Category,NotFound,Header,Sidebar,Profile,ProductCrud,ProductMore}

@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom"
 
-import { Category, Home, NotFound, Products, Profile } from "../pages"
+import { Category, Home, NotFound, ProductCrud, ProductMore, Products, Profile } from "../pages"
 import { PATH } from "../paths/PATH"
+
 
 
 const Dashboard = () => {
@@ -31,6 +32,21 @@ const Dashboard = () => {
       id:5,
       element: <NotFound/>,
       path: PATH.notFound
+    },
+    {
+      id:6,
+      element: <ProductCrud/>,
+      path: PATH.productCreate
+    },    
+    {
+      id:7,
+      element: <ProductCrud/>,
+      path: PATH.productUpdate
+    },
+    {
+      id:8,
+      element: <ProductMore/>,
+      path: PATH.productMore
     }
   ]
   return (
