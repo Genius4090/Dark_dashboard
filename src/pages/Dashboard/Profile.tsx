@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { useContext, useState, type SubmitEvent } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../context/GlobalContext";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
