@@ -22,13 +22,13 @@ const Register = () => {
       <form onSubmit={handleCreateSubmit} autoComplete="off" className="bg-white w-[400px] min-h-[400px] py-8 rounded px-6 flex flex-col gap-5  justify-center items-start">
         <h2 className="font-bold text-3xl text-center mx-auto">Signup</h2>
         <div className="space-y-6">
-        <AuthFormItem name="firstname" type="text" placeholder="Enter your firstname"/>
-        <AuthFormItem name="lastname" type="text" placeholder="Enter your lastname"/>
-        <AuthFormItem name="email" type="email" placeholder="Enter your email"/>
-        <AuthFormItem name="password" type="password" placeholder="Enter your password"/>
-        <AuthFormItem name="image" type="text" placeholder="Enter your profile picture URL"/>
+        <AuthFormItem isRequired={true} extraClass="w-full px-3 py-3" name="firstname" type="text" placeholder="Enter your firstname"/>
+        <AuthFormItem isRequired={true} extraClass="w-full px-3 py-3" name="lastname" type="text" placeholder="Enter your lastname"/>
+        <AuthFormItem isRequired={true} extraClass="w-full px-3 py-3" name="email" type="email" placeholder="Enter your email"/>
+        <AuthFormItem isRequired={true} extraClass="w-full px-3 py-3" name="password" type="password" placeholder="Enter your password"/>
+        <AuthFormItem isRequired={true} extraClass="w-full px-3 py-3" name="image" type="text" placeholder="Enter your profile picture URL"/>
         </div>
-        <Button>Create an account</Button>
+        <Button bgColor="black" textColor="white" extraClass="w-full" padY="3" textSize="lg">Create an account</Button>
         <FormLinkItem title="Already have an account?"/>
       </form>
     </div>

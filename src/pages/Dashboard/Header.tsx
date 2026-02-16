@@ -4,6 +4,7 @@ import { useContext, useState } from "react"
 import Modal from "../../components/Modal"
 import { Context } from "../../context/GlobalContext"
 import toast from "react-hot-toast"
+import Button from "../../components/Button"
 
 const Header = () => {
   const [logModal,setLogModal] = useState<boolean>(false)
@@ -26,19 +27,19 @@ const Header = () => {
     },1000)
   }
   return (
-    <div className="bg-black sticky top-0 w-full py-5 flex justify-between items-center  px-4 border-[#151B23] border-b">
+    <div className="bg-black sticky top-0 w-full z-100 py-5 flex justify-between items-center  px-4 border-[#151B23] border-b">
         <h2 className="text-lg text-white  font-semibold tracking-wide">
           {location.pathname === PATH.home && "Home"}
           {location.pathname === PATH.products && "Products"}
           {location.pathname === PATH.category && "Categories"}
           {location.pathname === PATH.profile && "Profile"}
         </h2>
-        <button onClick={()=> setLogModal(true)} className="px-6 py-2 bg-white  font-semibold rounded cursor-pointer">Log Out</button>
+        <Button onClick={()=> setLogModal(true)} bgColor="white" textColor="black" padX="6" padY="2">Log Out</Button>
         <Modal openModal={logModal} setOpenModal={setLogModal}>
-          <h2 className="text-white font-semibold text-center">Do you want to log out?</h2>
+          <h2 className="text-white font-semibold text-lg text-center ">Do you want to log out?</h2>
           <div className="flex gap-4 mt-4">
-          <button onClick={()=> setLogModal(false)} className="px-6 py-2 bg-white  font-semibold rounded cursor-pointer">Cancel</button>
-          <button onClick={()=> handleLogOut()} className="px-6 py-2 bg-red-500 text-white  font-semibold rounded cursor-pointer">Log Out</button>
+          <Button onClick={()=> setLogModal(false)} bgColor="white" textColor="black" padY="2" padX="6">Cancel</Button>
+          <Button onClick={()=> handleLogOut()} extraClass="bg-red-500" textColor="white" padX="6" padY="2">Log Out</Button>
 
           </div>
         </Modal>

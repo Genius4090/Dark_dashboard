@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { PATH } from "../../paths/PATH"
 import { useContext } from "react";
 import { Context } from "../../context/GlobalContext";
+import Button from "../../components/Button";
 
 
 const Sidebar = () => {
@@ -27,7 +28,7 @@ const Sidebar = () => {
            <img src={profile?.avatar || "https://freesvg.org/img/abstract-user-flat-4.png"} alt="user__image" className="rounded-full border-[#cecece] border-2 w-10 h-10 object-cover" />
            <h3 className="text-white font-semibold text-[15px]">{profile?.name || "loading..."}</h3>
            </div>
-           <button onClick={()=>navigate(PATH.profile)} className=" py-2 bg-white w-full font-semibold rounded cursor-pointer">Profile</button>
+           <Button onClick={()=>navigate(PATH.profile)} bgColor="white" textSize="md" textColor="black" padY="2" extraClass="w-full">Profile</Button>
 
         </div>
     </div>
