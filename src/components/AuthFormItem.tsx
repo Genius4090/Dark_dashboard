@@ -1,4 +1,4 @@
-import type { FC } from "react"
+import type { ChangeEvent, Dispatch, FC, SetStateAction } from "react"
 
 interface formInpType {
 type: "text" | "email" | "password",
@@ -9,9 +9,14 @@ borderCol?:string,
 textCol?:string,
 bgCol?:string,
 isRequired?:boolean,
+inputVal?:Dispatch<SetStateAction<string>>
 }
-const AuthFormItem:FC<formInpType> = ({type,name,placeholder,extraClass,borderCol,textCol,bgCol,isRequired}) => {
-  return <input required={isRequired} name={name} type={type} placeholder={placeholder} className={`border bg-${bgCol}  border-${borderCol} text-${textCol} rounded outline-none ${extraClass}`}/>
+const AuthFormItem:FC<formInpType> = ({type,name,placeholder,extraClass,borderCol,textCol,bgCol,isRequired,inputVal}) => {
+   function handleChange(e: ChangeEvent<HTMLInputElement>){
+   if(inputVal) inputVal(e.target.value)
+   }
+
+  return <input onChange={handleChange} required={isRequired} name={name} type={type} placeholder={placeholder} className={`border bg-${bgCol}  border-${borderCol} text-${textCol} rounded outline-none ${extraClass}`}/>
 }
 
 export default AuthFormItem

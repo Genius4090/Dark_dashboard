@@ -1,48 +1,52 @@
 import { useEffect, useState } from "react"
-import { instance } from "../../hooks"
+import { debounce, instance } from "../../hooks"
 import type { ProductType } from "../../@types/ProductType"
 import type { CategoryType } from "../../@types/CategoryType"
-import { AuthFormItem } from "../../components"
+import { AuthFormItem, SelectorItem } from "../../components"
 
 
 const Products = () => {
    const [products,setProducts] = useState<ProductType[]>()
+   const [categories,setCategories] = useState<CategoryType[]>([])
+   const [categoryId,setCategoryId] = useState<string | number>("")
    const errImage = "https://cdn.shopify.com/s/files/1/2303/2711/files/2_e822dae0-14df-4cb8-b145-ea4dc0966b34.jpg?v=1617059123"
-
+   const [inputVal,setInputVal] = useState<string>("")
+   const search = debounce(inputVal,800)
   useEffect(()=>{
-    instance.get("/products").then(res => setProducts(res.data)
+    instance.get("/products",{
+      params: {
+        title:search,
+        categoryId: categoryId
+      }
+    }).then(res => setProducts(res.data)
     )
-  },[])
+  },[search,categoryId])
 
 
-  const [categories,setCategories] = useState<CategoryType[]>()
   useEffect(()=>{
     instance.get("/categories").then(res => setCategories(res.data)
-
     )
   },[])
 
 
-// product compoennt va unga type berish
+// product component va unga type berish
 
    
   return (
     <div className="container py-8">
       <div className="flex justify-between w-full py-4">
      <div className="flex gap-4">
-     <AuthFormItem placeholder="Search..." type="text" borderCol="[#3A3A3A]" bgCol="[#1C1C1C]" textCol="white" extraClass="placeholder:text-white px-3 py-1.5"/>
-        <select className="border-[#3A3A3A] bg-[#1C1C1C] border py-1.5 px-4 outline-none text-white rounded">
-          {categories?.map(item=> <option key={item.id} value={item.id}>{item.name}</option>)} 
-        </select>
+     <AuthFormItem inputVal={setInputVal} placeholder="Search..." type="text" borderCol="[#3A3A3A]" bgCol="[#1C1C1C]" textCol="white" extraClass="placeholder:text-white px-3 py-1.5"/>
+     <SelectorItem categoryList={categories} setVal={setCategoryId}/>
        
 
      </div>
      <button className="px-6 py-2 bg-white  font-semibold rounded cursor-pointer">Create</button>
       </div>
-    <ul className="text-white flex flex-wrap gap-10 justify-center py-6">
+      <ul className="text-white flex flex-wrap gap-10 justify-center py-6">
       {products?.map(item=>
-        <li key={item.id} className="w-[300px] h-[450px] p-2 rounded flex flex-col items-start justify-between">
-          <img src={item.images[0]} onError={(e)=> (e.target as HTMLImageElement).src = errImage} alt="product__img" />
+        <li key={item.id} className="w-[300px] p-2 rounded flex flex-col items-start justify-between gap-4">
+          <img src={item.images[0]} onError={(e)=> (e.target as HTMLImageElement).src = errImage}  alt="product__img" className="h-48 w-full object-cover" />
           <h2 className="font-semibold  truncate w-full">{item.title}</h2>
           <div className="flex justify-between w-full items-center py-1">
           <button className="bg-white px-4 text-sm py-1.5 rounded font-semibold text-black">$ {item.price}</button>
@@ -55,8 +59,12 @@ const Products = () => {
       )}
      
     </ul>
+
     </div>
   )
 }
 
 export default Products
+
+
+// 
