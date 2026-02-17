@@ -42,7 +42,7 @@ const Profile = () => {
             <Mail className="w-5" />
             {profile?.email || "loading..."}
           </p>
-          <Button onClick={()=> handleUpdateModal()} bgColor="white" textColor="black" padY="2" extraClass="px-9">
+          <Button  btnType="button"  onClick={()=> handleUpdateModal()} bgColor="white" textColor="black" padY="2" extraClass="px-9">
             Change Profile
             </Button>
         </div>
@@ -56,8 +56,8 @@ const Profile = () => {
        <AuthFormItem isRequired={true} name="email"   placeholder="update email" type="email" textCol="white" borderCol="white" extraClass="placeholder:text-gray-300 py-3 px-2"/>
        </div>
      <div className="flex flex-col w-full items-center gap-2 px-7">
-     <Button bgColor="white" textColor="black" extraClass="w-full" padY="2">Update</Button>
-     <Button onClick={()=> setUserModal(false)} bgColor="transparent" textColor="white" textSize="sm" padY="2" extraClass="underline">Cancel</Button>
+     <Button  btnType="submit"  bgColor="white" textColor="black" extraClass="w-full" padY="2">Update</Button>
+     <Button  btnType="button"  onClick={()=> setUserModal(false)} bgColor="transparent" textColor="white" textSize="sm" padY="2" extraClass="underline">Cancel</Button>
      </div>
        </form>
       </Modal>

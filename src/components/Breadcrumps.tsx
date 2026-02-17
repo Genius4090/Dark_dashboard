@@ -12,7 +12,7 @@ const Breadcrumps = () => {
     currentLink.push(`/${crumb}`)
       return <Link className=" flex items-center gap-0.5" key={crumb} to={currentLink.join('')}>{crumb} <ChevronRight size={18}/></Link>;
     });
-  return <div className="text-white flex absolute top-22">{crumps}</div>;
+  return <h2 className="text-white flex ">{crumps}</h2>;
 };
 
 export default Breadcrumps;

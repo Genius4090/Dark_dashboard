@@ -50,5 +50,23 @@ const registerFn = ({e,navigate} : RegisterType) => {
 }
 
 
+const crudFn = (URL:string,data:any,navigate:NavigateFunction,id:string | undefined) => {
+  if(id){
+    instance.put(`${URL}/${id}`,data).then(()=> {
+        toast.success("Successfully updated")
+        setTimeout(()=>{
+          navigate(-1)
+        },1000)
+      }).catch(()=> toast.error("Error occured during update"))
+  }else {
+    instance.post(URL,data).then(()=> {
+        toast.success("Successfully created")
+        setTimeout(()=>{
+          navigate(-1)
+        },1000)
+      }).catch(()=> toast.error("Error occured during create"))
+  }
+}
 
-export {loginFn,registerFn}
+
+export {loginFn,registerFn,crudFn}
