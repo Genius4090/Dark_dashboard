@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { instance } from "../../hooks"
-import { useEffect, useState, type FC } from "react"
+import { useEffect, useState} from "react"
 import type { ProductType } from "../../@types/ProductType"
 import { CircleDollarSign } from "lucide-react"
 import { Button, Modal } from "../../components"
