@@ -7,7 +7,7 @@ import { Button, Modal } from "../../components"
 import toast from "react-hot-toast"
 
 
-const ProductMore:FC<ProductType> = () => {
+const ProductMore = () => {
   const [product,setProduct] = useState<ProductType>()
   const [deleteModal,setDeleteModal] = useState<boolean>(false)
   const {id} = useParams()
